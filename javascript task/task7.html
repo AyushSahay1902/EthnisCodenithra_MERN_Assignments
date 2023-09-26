@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <style>
+        #train {
+            position: relative;
+            left: 0;
+            transition: left 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let animationInterval;
+
+        function startAnimation() {
+            const train = document.getElementById('train');
+            train.style.left = '100%';
+
+            animationInterval = setInterval(() => {
+                train.style.left = '0';
+                setTimeout(() => {
+                    train.style.left = '100%';
+                }, 2000); // 2 seconds for one cycle
+            }, 4000); // 4 seconds for two cycles (left to right and right to left)
+        }
+
+        function stopAnimation() {
+            const train = document.getElementById('train');
+            train.style.left = '0';
+            clearInterval(animationInterval);
+        }
+    </script>
+    <img src="img1.png" id="train" alt="train image">
+    <p>Click the following buttons to handle animation</p>
+    <button onclick="startAnimation()">Start</button>
+    <button onclick="stopAnimation()">Stop</button>
+</body>
+</html>

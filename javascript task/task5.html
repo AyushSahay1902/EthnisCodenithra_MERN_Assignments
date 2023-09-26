@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+</head>
+<body>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('websiteError').textContent = '';
+            document.getElementById('msgError').textContent = '';
+
+            const nameInput = document.querySelector('input[name="name"]');
+            const emailInput = document.querySelector('input[name="email"]');
+            const websiteInput = document.querySelector('input[name="website"]');
+            const messageInput = document.querySelector('input[name="message"]');
+            
+            // Check Name input
+            if (nameInput.value.trim() === '') {
+                document.getElementById('nameError').textContent = 'Name field is required.';
+                return false;
+            }
+
+            // Check Email input for valid email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                return false;
+            }
+
+            // Check Website input for valid URL format
+            const websiteRegex = /^(http|https):\/\/[^ "]+$/;
+            if (!websiteRegex.test(websiteInput.value)) {
+                document.getElementById('websiteError').textContent = 'Invalid URL format.';
+                return false;
+            }
+
+            // Check Message input
+            if (messageInput.value.trim() === '') {
+                document.getElementById('msgError').textContent = 'Message field is required.';
+                return false;
+            }
+
+            return true; 
+        }
+    </script>
+    
+    <form onsubmit="return validateForm();">
+        <span>Name: </span> <input type="text" name="name"> <span id="nameError" class="error"></span> <br><br>
+        <span>Email: </span> <input type="text" name="email"> <span id="emailError" class="error"></span><br><br>
+        <span>Website: </span> <input type="text" name="website"> <span id="websiteError" class="error"></span><br><br>
+        <span>Message: </span> <input type="text" style="height: 60px;" name="message"> <span id="msgError" class="error"></span><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

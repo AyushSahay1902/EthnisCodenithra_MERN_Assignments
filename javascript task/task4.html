@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+    <script>
+        function showDate() {
+            const currentDate = new Date();
+            const date = currentDate.toLocaleDateString();
+            document.getElementById('date').innerHTML = `Date: ${date}`;
+        }
+
+        function showtime() {
+            const currentDate = new Date();
+            const date = currentDate.toLocaleDateString();
+            const time = currentDate.toLocaleTimeString();
+            document.getElementById('time').innerHTML = `Time: ${date} ${time}`;
+        }
+    </script>
+    
+    <button onclick="showDate()">show date</button>
+    <p id="date"></p>
+
+    <button onclick="showtime()">show time</button>
+    <p id="time"></p>
+
+</body>
+</html>
